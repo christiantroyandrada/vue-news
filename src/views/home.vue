@@ -1,27 +1,31 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">List of news</div>
-
-                    <div class="card-body">
-                        {{news}}
-                    </div>
-                </div>
+        <div class="card" v-for="news in news_list" :key="news.id">
+            <img :src="news.urlToImage" alt="Avatar" style="width:100%"> <!--news.urlToImage-->
+            <div class="container">
+                <h3><b>{{news.title}}</b></h3> <!--news.title-->
+                <h5>{{news.source.name}}</h5> <!--news.source.name-->
+                <h5>{{news.author}}</h5> <!--news.author-->
+                <p>{{news.description}}</p> <!--news.description-->
             </div>
         </div>
-    </div>
+    </div>      
 </template>
 
 <script>
     export default{
         data: () => ({
-            news: 'content of news',
+            news_list: [],
         }),
-        methods: {},
+        methods: {
+            
+        },
         mounted () {
-            this.news = this.$store.getters.fetchNews
+            this.$store.dispatch('fetchNews').then(() => {
+                this.news_list = this.$store.getters.news
+                console.log(this.news_list)
+            }); 
+            this.assignValue()
         }
     }
     

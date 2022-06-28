@@ -4,7 +4,7 @@
 <script>
     export default{
         data: () => ({
-            test:'This is a test'
+            text:'This is a test'
         }),
         mounted(){
             alert('This is a mounted component')
