@@ -1,11 +1,17 @@
 body{
-    width: 70%;
     margin: auto;
     overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+}
+nav{
+    background-color: lightskyblue;
 }
 nav .logo{
     display: inline-block;
     margin-right: auto;
+    margin-left: 5%;
 }
 nav .links{
     display: inline-block;
@@ -13,24 +19,34 @@ nav .links{
 }
 
 .container{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-height: 100vh;
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 2.5em;
+    padding-bottom: 2em;
+    text-align: left;
 }
 .card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem, 2rem;
   }
   
   /* On mouse-over, add a deeper shadow */
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+.card-item-top h3{
+    margin-bottom: 0.3rem;
+}
+.card-item-top h5, h4{
+    color: gray;
+    font-weight: 400;
+    margin: 0;
+}
   
-  /* Add some padding inside the card container */
-  .container {
-    padding: 2px 16px;
-  }
   

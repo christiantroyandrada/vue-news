@@ -1,6 +1,6 @@
 
 <template>
-  <header class="wrapper">
+  <header>
       <nav>
         <h5 class="logo">Vue news</h5>
         <div class="links">

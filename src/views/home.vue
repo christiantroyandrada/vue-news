@@ -1,11 +1,13 @@
 <template>
     <div class="container">
         <div class="card" v-for="news in news_list" :key="news.id">
-            <img :src="news.urlToImage" alt="Avatar" style="width:100%"> <!--news.urlToImage-->
-            <div class="container">
+            <img class="card-item-img" :src="news.urlToImage" alt="Avatar" style="width:100%"> <!--news.urlToImage-->
+            <div class="card-item-top">
                 <h3><b>{{news.title}}</b></h3> <!--news.title-->
-                <h5>{{news.source.name}}</h5> <!--news.source.name-->
+                <h4>{{news.source.name}}</h4> <!--news.source.name-->
                 <h5>{{news.author}}</h5> <!--news.author-->
+            </div>
+            <div class="card-item-bot">
                 <p>{{news.description}}</p> <!--news.description-->
             </div>
         </div>
@@ -25,7 +27,6 @@
                 this.news_list = this.$store.getters.news
                 console.log(this.news_list)
             }); 
-            this.assignValue()
         }
     }
     
