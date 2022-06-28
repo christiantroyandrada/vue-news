@@ -9,8 +9,8 @@
         
       </nav>
   </header>
+  <total-news/>
   <router-view />
-  <total-news />
   <footer>
 
   </footer>

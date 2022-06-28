@@ -8,7 +8,7 @@
                 <h5>{{news.author}}</h5> <!--news.author-->
             </div>
             <div class="card-item-bot">
-                <p>{{news.description}}</p> <!--news.description-->
+                <p v-html="news.description"></p> <!--news.description-->
             </div>
         </div>
     </div>      

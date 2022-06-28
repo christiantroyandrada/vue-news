@@ -7,7 +7,17 @@
             total_news:null,
         }),
         mounted(){
-            this.total_news = this.$store.getters.total_news
+            alert('total_news is mounted')
+            setTimeout(() => {
+                this.total_news = this.$store.getters.total_news
+            }, 340);
+            
         }
     }
 </script>
+<style scoped>
+    h5 {
+        text-align: center;
+        margin-top: 5%;
+    }
+</style>
