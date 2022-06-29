@@ -12,10 +12,10 @@
             </div>
         </div>
     </div>
-    <div style="text-align: center" v-else-if="err_msg === null && news_list === null">
+    <div style="text-align: center; font-size: 1rem;" v-else-if="err_msg === null && news_list === null">
         <h1>Use the search boxes to find relevant news.</h1>
     </div>
-    <div style="text-align: center;" v-else>
+    <div style="text-align: center; font-size: 1rem;" v-else>
         <h1>Sorry, there must be an issue in retrieving news</h1>
         <h2>{{err_msg}}</h2>
     </div>      

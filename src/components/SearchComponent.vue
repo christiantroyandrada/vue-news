@@ -1,25 +1,23 @@
 <template>
     <div class="search-component">
         <span>
-            <select name="countries" v-model="selected_country" class="searchTerm">
+            <select name="countries" v-model="selected_country" class="search-term">
                 <option value="" disabled selected>Country</option>
                 <option v-for="country in country_list" :key="country.Code" :value="country.Code">
                 {{country.Name}}
                 </option>
             </select>
-            <select name="catagory" v-model="selected_category" class="searchTerm">
+            <select name="catagory" v-model="selected_category" class="search-term">
                 <option value="" disabled selected>Category</option>
                 <option v-for="category in categories" :key="category" :value="category">
                 {{category}}
                 </option>
             </select>
-            <input type="text" v-model="keyword" class="searchTerm" placeholder="Keywords (optional)">
-            <button type="submit" @click="searchNews" class="searchButton">
-                <h5>search</h5>
-            </button>
-
+            <input type="text" v-model="keyword" class="search-term" placeholder="Keywords (optional)">
         </span>
-        
+        <button  @click="searchNews" class="search-button">
+                <span>Search</span>
+        </button>
     </div>
     
 </template>
@@ -53,8 +51,5 @@
     }
 </script>
 <style scoped>
-    .search-component{
-        display: block;
-        text-align: center;
-    }
+    @import "../assets/search.css"
 </style>

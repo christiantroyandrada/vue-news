@@ -33,17 +33,16 @@ const store = createStore({
     },
     actions: {
         fetchNews(context, payload){
-                axios.get(url + `q=${payload.keyword}&country=${payload.country}&category=${payload.category}&apiKey=${news_api_key}`)
-                    .then((res) => {
-                        //console.log(res)
-                        context.commit("displayErr", null)
-                        context.commit("totalNews", res.data.totalResults)
-                        context.commit("changeNews", res.data.articles)                       
-                    })
-                    .catch((err) => {
-                        console.log(context.getters.query)
-                        context.commit("displayErr", err)
-                    })
+            axios.get(url + `q=${payload.keyword ? `${payload.keyword}` : 'news'}&country=${payload.country ? `${payload.country}` : 'us'}&category=${payload.category ? `${payload.category}` : 'general'}&apiKey=${news_api_key}`)
+                .then((res) => {
+                    //console.log(res)
+                    context.commit("displayErr", null)
+                    context.commit("totalNews", res.data.totalResults)
+                    context.commit("changeNews", res.data.articles)                       
+                })
+                .catch((err) => {
+                    context.commit("displayErr", err)
+                })
         }
     },
 })
