@@ -1,12 +1,13 @@
 import axios from 'axios'
 import { createStore } from 'vuex'
-import { url } from '../env'
+import { url, news_api_key } from '../env'
 
 
 const store = createStore({
     state: {
         news: null,
         total_news: null,
+        err_msg:null,
     },
     getters: {
         total_news (state){
@@ -14,7 +15,10 @@ const store = createStore({
         },
         news (state) {
             return state.news
-        }
+        },
+        err_msg (state){
+            return state.err_msg
+        },
     },
     mutations: {
         changeNews(state, content){
@@ -22,22 +26,24 @@ const store = createStore({
         },
         totalNews(state, content){
             state.total_news = content
+        },
+        displayErr(state, content){
+            state.err_msg = content
         }
     },
     actions: {
-        async fetchNews(context){
-            return new Promise((resolve, reject) => {
-                axios.get(url)
+        fetchNews(context, payload){
+                axios.get(url + `q=${payload.keyword}&country=${payload.country}&category=${payload.category}&apiKey=${news_api_key}`)
                     .then((res) => {
                         //console.log(res)
-                        context.commit("changeNews", res.data.articles)
+                        context.commit("displayErr", null)
                         context.commit("totalNews", res.data.totalResults)
-                        resolve(res)
+                        context.commit("changeNews", res.data.articles)                       
                     })
                     .catch((err) => {
-                        reject(err) 
+                        console.log(context.getters.query)
+                        context.commit("displayErr", err)
                     })
-            })
         }
     },
 })

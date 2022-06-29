@@ -5,6 +5,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-row-gap: 2.5rem;
+        justify-content: center;
         padding-bottom: 2rem;
         text-align: left;
     }
@@ -23,12 +24,13 @@
         display: grid;
         grid-template-columns: 1fr ;
         grid-row-gap: 2.5rem;
+        justify-content: center;
         padding-bottom: 2rem;
         text-align: left;
     }
 
     .card{
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     nav .links{
@@ -45,6 +47,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr ;
             grid-row-gap: 2.5rem;
+            justify-content: center;
             padding-bottom: 2rem;
             text-align: left;
         }
@@ -104,6 +107,8 @@ nav .links:active{
 .card-item-img{
     min-height: 250px;
     max-height: 250px;
+    min-width: 355px;
+    max-width: 355px;
 }
   
   

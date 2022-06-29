@@ -6,8 +6,8 @@
         <div class="links">
           <router-link to="/">Home</router-link>
         </div>
-        
       </nav>
+      <search-component />
   </header>
   <total-news/>
   <router-view />
@@ -20,10 +20,12 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import TotalNews from  './components/TotalNews.vue'
+import SearchComponent from './components/SearchComponent.vue'
 export default{
   name: 'App',
   components: {
-    TotalNews
+    TotalNews,
+    SearchComponent,
   }
 }
 </script>
