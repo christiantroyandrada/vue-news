@@ -7,7 +7,6 @@
             total_news:null,
         }),
         mounted(){
-            alert('total_news is mounted')
             setTimeout(() => {
                 this.total_news = this.$store.getters.total_news
             }, 340);
