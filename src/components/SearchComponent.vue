@@ -1,12 +1,14 @@
 <template>
     <div class="search-component">
         <span>
-            <select name="countries" v-model="selected_country">
+            <select name="countries" v-model="selected_country" class="searchTerm">
+                <option value="" disabled selected>Country</option>
                 <option v-for="country in country_list" :key="country.Code" :value="country.Code">
                 {{country.Name}}
                 </option>
             </select>
-            <select name="catagory" v-model="selected_category">
+            <select name="catagory" v-model="selected_category" class="searchTerm">
+                <option value="" disabled selected>Category</option>
                 <option v-for="category in categories" :key="category" :value="category">
                 {{category}}
                 </option>

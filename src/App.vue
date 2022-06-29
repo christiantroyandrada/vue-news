@@ -4,7 +4,7 @@
       <nav>
         <h5 class="logo">Vue news</h5>
         <div class="links">
-          <router-link to="/">Home</router-link>
+          <!-- <router-link to="/">Home</router-link> -->
         </div>
       </nav>
       <search-component />
