@@ -1,0 +1,93 @@
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal {
+    width: 60%;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header,
+  .modal-footer {
+    padding: 15px;
+    display: flex;
+  }
+
+  .modal-header {
+    position: relative;
+    border-bottom: 1px solid #eeeeee;
+    color: #045bdb;
+    justify-content: center;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .modal-body {
+    position: relative;
+    padding: 20px 10px;
+  }
+  .modal-item-top{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  .modal-item-top h3{
+    font-size: 1.5rem;
+  }
+  .modal-item-top h4, h5{
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .modal-item-img{
+    display:block;
+    width: auto;
+    height: auto;
+    max-height: 30%;
+    max-width: 60%;
+    margin: 5% auto ;
+  }
+  .modal-item-content{
+    margin: auto 20%;
+  }
+
+  .btn-blue {
+    border: 1px #045bdb solid;
+    border-radius: 2%;
+    background-color:transparent;
+    color: #045bdb;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    height: 35px;
+    margin: 0 20%;
+    transition-property: background-color, color;
+    transition-duration: 0.215s;
+  }
+  .btn-blue:hover{
+    background-color: #045bdb;
+    color: #fff;
+  }
+
+  .modal-fade-enter,
+  .modal-fade-leave-to {
+    opacity: 0;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity .5s ease;
+  }
