@@ -16,6 +16,7 @@
     background: #FFFFFF;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: none;
+    overflow-y: initial ;
     display: flex;
     flex-direction: column;
   }
@@ -39,30 +40,27 @@
   }
 
   .modal-body {
+    height: 50vh;
+    overflow-y: auto;
     position: relative;
     padding: 20px 10px;
   }
-  .modal-item-top{
-    margin-left: 20%;
-    margin-right: 20%;
-  }
+
   .modal-item-top h3{
-    font-size: 1.5rem;
+    font-size: 3vh;
   }
   .modal-item-top h4, h5{
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 2vh;
   }
   .modal-item-img{
     display:block;
-    width: auto;
-    height: auto;
-    max-height: 30%;
-    max-width: 60%;
+    width: 100vw;
     margin: 5% auto ;
   }
   .modal-item-content{
-    margin: auto 20%;
+    margin: auto;
+    font-size: 1.8vh;
   }
 
   .btn-blue {

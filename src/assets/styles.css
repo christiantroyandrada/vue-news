@@ -71,6 +71,8 @@ nav{
 }
 nav .logo{
     display: inline-block;
+    font-size: 1.5rem;
+    margin: 1% auto;
     margin-right: auto;
     margin-left: 5%;
 }
