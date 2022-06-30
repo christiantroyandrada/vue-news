@@ -1,5 +1,5 @@
 <template>
-    <transition name="modal-fade">
+    <Transition name="modal-fade">
         <div class="modal-backdrop">
             <div class="modal">
                 <header class="modal-header">
@@ -29,7 +29,7 @@
                 </footer>
             </div>
         </div>
-    </transition>    
+    </Transition>    
   
 </template>
 <script>

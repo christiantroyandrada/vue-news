@@ -46,7 +46,6 @@ import NewsDetails from '../components/NewsDetailsComponent.vue'
                 this.$store.commit('newsDetails', value)
                 document.body.classList.add("modal-open")
                 this.news_modal = true
-                alert(`News saved to VueX for modal to use with values\n${JSON.stringify(this.$store.getters.news_details)}`)
             },
             closeNews(){
                 document.body.classList.remove("modal-open")

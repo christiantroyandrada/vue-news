@@ -11,3 +11,5 @@ app.use(router)
 router.isReady().then(() => {
     app.mount('#app')
 })
+
+//Vue News app using Vue 3 by Christian Troy Andrada

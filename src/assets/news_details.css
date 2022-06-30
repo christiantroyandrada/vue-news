@@ -30,7 +30,8 @@
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #045bdb;
+    color: #fff;
+    background-color: #045bdb;
     justify-content: center;
   }
 
