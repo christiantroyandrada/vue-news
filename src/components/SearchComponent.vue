@@ -46,7 +46,6 @@
         },
         mounted (){
             this.country_list = countries
-            console.log(this.country_list)
         }
     }
 </script>
