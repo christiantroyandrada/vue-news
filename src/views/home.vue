@@ -9,8 +9,12 @@
             </div>
             <div class="card-item-bot">
                 <p v-html="news.description"></p> <!--news.description-->
+                <button  @click="newsDetails(news)">
+                    <span>Search</span>
+                </button>
             </div>
             <div class="card-footer">
+                <hr>
                 <h5>Published: {{publishDate(news.publishedAt)}}</h5>
             </div>
         </div>
@@ -32,6 +36,10 @@
         methods:{
             publishDate(value){
                 return value.replace('T', ' ').replace('Z', '').replace(' ', ' at ')
+            },
+            newsDetails(value){
+                this.$store.commit('newsDetails', value)
+                alert(`News saved to VueX for modal to use with values\n${JSON.stringify(this.$store.getters.news_details)}`)
             }
         },
         computed:{

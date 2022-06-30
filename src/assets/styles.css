@@ -110,5 +110,35 @@ nav .links:active{
 .card-item-bot{
     font-weight: 300;
 }
+.card-item-bot button{
+    display: block;
+    margin: 0 auto;
+    justify-content:center;
+    background-color: #045bdb;
+    border-color: #045bdb;
+    border-radius: 5%;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    color: white;
+    width: 33%;
+    height: 35px;
+    transition-property: background-color, color;
+    transition-duration: 0.215s;
+}
+.card-item-bot button:hover{
+    color: #045bdb;
+    background-color: white;
+}
+.card-footer hr{
+    border: 1px solid  #045bdb;
+    border-style: solid none none none;
+    margin-bottom: 0;
+    opacity: .5;
+}
+.card-footer h5{
+    font-weight: 400;
+    color: gray;
+    margin-top: 0.5rem;
+}
   
   

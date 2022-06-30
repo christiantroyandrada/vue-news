@@ -32,7 +32,7 @@
 button.search-button{
     display: inline;
     border: 1px #045bdb solid;
-    border-radius: 10%;
+    border-radius: 5%;
     color: #045bdb;
     font-family: 'Segoe UI', sans-serif;
     font-weight: bold;
