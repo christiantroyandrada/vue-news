@@ -10,6 +10,9 @@
             <div class="card-item-bot">
                 <p v-html="news.description"></p> <!--news.description-->
             </div>
+            <div class="card-footer">
+                <h5>Published: {{publishDate(news.publishedAt)}}</h5>
+            </div>
         </div>
     </div>
     <div style="text-align: center; font-size: 1rem;" v-else-if="err_msg === null && news_list === null">
@@ -26,6 +29,11 @@
         data: () => ({
             
         }),
+        methods:{
+            publishDate(value){
+                return value.replace('T', ' ').replace('Z', '').replace(' ', ' at ')
+            }
+        },
         computed:{
             news_list(){
                 return this.$store.getters.news

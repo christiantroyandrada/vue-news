@@ -7,6 +7,7 @@ const store = createStore({
     state: {
         news: null,
         total_news: null,
+        news_details: null,
         err_msg:null,
     },
     getters: {
@@ -19,6 +20,9 @@ const store = createStore({
         err_msg (state){
             return state.err_msg
         },
+        news_details (state){
+            return state.news_details
+        }
     },
     mutations: {
         changeNews(state, content){
@@ -29,13 +33,16 @@ const store = createStore({
         },
         displayErr(state, content){
             state.err_msg = content
+        },
+        newsDetails(state, content){
+            state.news_details = content
         }
     },
     actions: {
         fetchNews(context, payload){
             axios.get(url + `q=${payload.keyword ? `${payload.keyword}` : 'news'}&country=${payload.country ? `${payload.country}` : 'us'}&category=${payload.category ? `${payload.category}` : 'general'}&apiKey=${news_api_key}`)
                 .then((res) => {
-                    //console.log(res)
+                    console.log(res)
                     context.commit("displayErr", null)
                     context.commit("totalNews", res.data.totalResults)
                     context.commit("changeNews", res.data.articles)                       
