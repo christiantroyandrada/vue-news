@@ -50,6 +50,9 @@ const store = createStore({
                 .catch((err) => {
                     context.commit("displayErr", err)
                 })
+        },
+        showNewsDetails(context, news){
+            context.commit('newsDetails', news)
         }
     },
 })
