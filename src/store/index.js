@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { createStore } from 'vuex'
-import { url, news_api_key } from '../env'
+import { url, news_api_key, ai } from '../env'
 
 
 const store = createStore({
@@ -9,6 +9,7 @@ const store = createStore({
         total_news: null,
         news_details: null,
         err_msg:null,
+        banner: null,
     },
     getters: {
         total_news (state){
@@ -36,6 +37,9 @@ const store = createStore({
         },
         newsDetails(state, content){
             state.news_details = content
+        },
+        changeBanner(state, content){
+            state.banner = content
         }
     },
     actions: {
@@ -53,7 +57,12 @@ const store = createStore({
         },
         showNewsDetails(context, news){
             context.commit('newsDetails', news)
-        }
+        },
+        fetchImageAI(context, payload){
+           ai.post(`https://api.openai.com/v1/images/generations`,payload).then(response => {
+              context.commit('changeBanner', response.data.data)
+           }).catch(err => console.log(err))
+        } 
     },
 })
 
