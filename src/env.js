@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-const news_api_key = `d4c82138251c4b0fa87a511905bc7800`;
-const dall_api_key = `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`
-const url = 'https://newsapi.org/v2/top-headlines?' 
+
+const news_api_key = import.meta.env.VITE_NEWS_API_KEY
+const dall_api_key = import.meta.env.VITE_DALL_API_KEY
+const url = import.meta.env.VITE_URL;
 
 const ai = axios.create({
     headers: {

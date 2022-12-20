@@ -8,13 +8,13 @@
 
                 <section class="modal-body">
                     <div class="modal-item-top">
-                        <h3><b>{{$store.getters.news_details.title}}</b></h3> <!--news.title-->
-                        <h4>{{$store.getters.news_details.source.name}}</h4> <!--news.source.name-->
-                        <h5>{{$store.getters.news_details.author}}</h5> <!--news.author-->
+                        <h3><b>{{news_details.title}}</b></h3> <!--news.title-->
+                        <h4>{{news_details.source.name}}</h4> <!--news.source.name-->
+                        <h5>{{news_details.author}}</h5> <!--news.author-->
                     </div>
-                    <img class="modal-item-img" :src="$store.getters.news_details.urlToImage" alt="Avatar" style="width:100%">
+                    <img class="modal-item-img" :src="news_details.urlToImage" alt="Avatar" style="width:100%">
                     <div class="modal-item-content">
-                        <p>{{$store.getters.news_details.content}}</p>
+                        <p>{{news_details.content}}</p>
                     </div>
                 </section>
 
@@ -33,8 +33,14 @@
   
 </template>
 <script>
+import { mapState } from 'vuex'
   export default {
     name: 'NewsDetails',
+    computed: {
+        ...mapState({
+            news_details: state => state.news_details
+        }),
+    },
     methods: {
       close() {
         this.$store.commit('newsDetails', null)
