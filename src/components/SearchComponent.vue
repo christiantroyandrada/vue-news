@@ -21,33 +21,31 @@
     </div>
     
 </template>
-<script>
+<script setup>
+    import { ref, onMounted } from 'vue'
+    import { useStore } from 'vuex'
     import countries from "../store/countries.json"
-    export default{
-        data: () => ({
-            keyword: '',
-            selected_country: '',
-            selected_category: '',
-            categories: ['business', 'entertainment', 'general', 'health',
-            'science', 'sports', 'technology'],
-            country_list:[]
-        }),
-        computed:{
+    const store = useStore();
 
-        },
-        methods:{
-            searchNews(){
-                this.$store.dispatch('fetchNews', {
-                    keyword: this.keyword,
-                    country: this.selected_country.toLowerCase(),
-                    category: this.selected_category
-                })
-            }
-        },
-        mounted (){
-            this.country_list = countries
-        }
+    const keyword = ref('');
+    const selected_category = ref('');
+    const selected_country = ref('');
+    const categories = ref([
+        'business', 'entertainment', 'general', 'health',
+        'science', 'sports', 'technology',
+    ]);
+    const country_list = ref([]);
+
+    function searchNews() {
+        store.dispatch('fetchNews', {
+            keyword: keyword.value,
+            country: selected_country.value.toLowerCase(),
+            category: selected_category.value
+        });
     }
+    onMounted(() => {
+        country_list.value = countries
+    })
 </script>
 <style scoped>
     @import "../assets/search.css"

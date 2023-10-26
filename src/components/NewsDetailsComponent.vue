@@ -32,22 +32,18 @@
     </Transition>    
   
 </template>
-<script>
-import { mapState } from 'vuex'
-  export default {
-    name: 'NewsDetails',
-    computed: {
-        ...mapState({
-            news_details: state => state.news_details
-        }),
-    },
-    methods: {
-      close() {
-        this.$store.commit('newsDetails', null)
-        this.$emit('close');
-      },
-    },
-  };
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore();
+const emit = defineEmits(['close']);
+
+const news_details = computed(() => store.state.news_details);
+function close () {
+    store.commit('newsDetails', null)
+    emit('close');
+}
+
 </script>
 <style scoped>
     @import "../assets/news_details.css"

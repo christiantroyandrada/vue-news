@@ -4,23 +4,22 @@
     </div>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-export default {
-    computed: {
-        ...mapState({
-            image: state => state.banner,
-            news: state => state.news,
-        })
-    },
-    async mounted() { 
-        await this.$store.dispatch('fetchImageAI', {
-            prompt: 'Random advertisement',
-            n: 5,
-            size: "256x256"
-        })
-    },
-}
+<script setup>
+import { onMounted, computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore();
+
+
+const image = computed(() => store.state.image);
+
+onMounted(async () => {
+    store.dispatch('fetchImageAI', {
+        prompt: 'Random advertisement',
+        n: 5,
+        size: "256x256"
+    });
+});
+
 </script>
 <style scoped>
 
