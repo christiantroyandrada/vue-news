@@ -1,5 +1,5 @@
 <template>
-    <div class="container" v-if="err_msg === null && news_list !== null">
+    <div class="container" v-if="err_msg === null && news !== null">
         <div class="card" v-for="news in news" :key="news.id">
             <img class="card-item-img" :src="news.urlToImage" alt="Avatar" style="width:100%"> <!--news.urlToImage-->
             <div class="card-item-top">
@@ -20,7 +20,7 @@
         </div>
         <news-details v-if="news_modal" @close="closeNews"/>
     </div>
-    <div style="text-align: center; font-size: 1rem;" v-else-if="err_msg === null && news_list === null">
+    <div style="text-align: center; font-size: 1rem;" v-else-if="err_msg === null && news === null">
         <h1>Use the search boxes to find relevant news.</h1>
     </div>
     <div style="text-align: center; font-size: 1rem;" v-else>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import NewsDetails from '../components/NewsDetailsComponent.vue'
+import NewsDetails from 'components/NewsDetailsComponent.vue'
 import {mapGetters} from 'vuex'
     export default{
         components:{

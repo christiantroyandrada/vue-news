@@ -22,7 +22,7 @@
     
 </template>
 <script>
-    import countries from "../store/countries.json"
+    import countries from "utils/countries.json"
     export default{
         data: () => ({
             keyword: '',

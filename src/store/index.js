@@ -1,7 +1,5 @@
-import axios from 'axios'
 import { createStore } from 'vuex'
-import { url, news_api_key, ai } from '../env'
-
+import RequestData from 'utils/api-requests'
 
 const store = createStore({
     state: {
@@ -43,25 +41,27 @@ const store = createStore({
         }
     },
     actions: {
-        fetchNews(context, payload){
-            axios.get(url + `q=${payload.keyword ? `${payload.keyword}` : 'news'}&country=${payload.country ? `${payload.country}` : 'us'}&category=${payload.category ? `${payload.category}` : 'general'}&apiKey=${news_api_key}`)
-                .then((res) => {
-                    console.log(res)
-                    context.commit("displayErr", null)
-                    context.commit("totalNews", res.data.totalResults)
-                    context.commit("changeNews", res.data.articles)                       
-                })
-                .catch((err) => {
-                    context.commit("displayErr", err)
-                })
+        async fetchNews(context, payload){
+          try {
+            const response = await RequestData.fetchNews(payload)
+            context.commit('displayErr', response.display_error)
+            context.commit("totalNews", response.total_news);
+            context.commit("changeNews", response.change_news);
+          } catch (err) {
+            context.commit('displayErr', err)
+          }
+          
         },
         showNewsDetails(context, news){
             context.commit('newsDetails', news)
         },
-        fetchImageAI(context, payload){
-           ai.post(`https://api.openai.com/v1/images/generations`,payload).then(response => {
-              context.commit('changeBanner', response.data.data)
-           }).catch(err => console.log(err))
+        async fetchImageAI(context, payload){
+          try {
+            const response = await RequestData.fetchImageAI(payload)
+            context.commit('changeBanner', response.banner_data)
+          } catch (err) {
+            console.log(err)
+          }
         } 
     },
 })

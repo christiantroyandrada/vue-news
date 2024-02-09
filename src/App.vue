@@ -16,10 +16,10 @@
 
 
 <script>
-import TotalNews from  './components/TotalNews.vue'
-import SearchComponent from './components/SearchComponent.vue'
-import Banner from './components/AIGeneratedAd.vue'
-import FooterComp from './components/Footer.vue'
+import TotalNews from  'components/TotalNews.vue'
+import SearchComponent from 'components/SearchComponent.vue'
+import Banner from 'components/AIGeneratedAd.vue'
+import FooterComp from 'components/Footer.vue'
 export default{
   name: 'App',
   components: {
