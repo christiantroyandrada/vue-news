@@ -14,7 +14,7 @@ RUN npm install --quiet --no-progress
 COPY . .
 
 # Expose port if needed
-EXPOSE 3000
+EXPOSE 8080
 
 # Run Vite
-CMD ["npm", "run", "dev"]
+CMD ["sh", "-c", "npm run build && npm run preview"]

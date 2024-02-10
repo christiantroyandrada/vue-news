@@ -16,5 +16,10 @@ export default defineConfig({
       'router': fileURLToPath(new URL('./src/router', import.meta.url)),
       'App': fileURLToPath(new URL('./src/App.vue', import.meta.url)),
     }
+
+  },
+  server: {
+    host: true,
+    port: 8080
   }
 })
